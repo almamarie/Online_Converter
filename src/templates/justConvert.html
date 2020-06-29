@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./justConvert.css"/>
+    <script type="text/javascript" src="./justConvert.js"></script>
+    
+</head>
+
+
+<body>
+    <div class="converter">
+        <div class="header">
+            <h1 class="logo">Just Convert</h1>
+            <nav>
+                <ul>
+                    <li><a class="list-item" href="">Home</a></li>
+                    <li><a class="list-item" href="">History</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="body">
+                <div class="right-side">
+                    <div class="inner-body">
+                        <h1>Converter</h1>
+                        <form>
+                            <input 
+                                type="text" 
+                                name="quantity" 
+                                placeholder="Quantity"
+                            />
+                            <select 
+                                id="quantity" 
+                                name="Quantity" 
+                                onchange="dis(this.id,'from','to')"
+                                >
+                                <option value="Select">Select unit</option>
+                                <option value="Length">Length</option>
+                                <option value="Mass">Mass</option>
+                                <option value="Area">Area</option>
+                                <option value="Temperature">Temperature</option>
+                                <option value="Currency">Currency</option>
+                              </select>
+                              <select id="from" name="From">
+                                <option >From</option>
+                              </select>
+                              <select id="to" name="To">
+                                <option >To</option>
+                              </select>
+                            <button onclick="toggleDivs('main-action')">CONVERT</button>
+                        </form>
+                        <p id="answer">answer</p>
+                     </div>
+                       
+            </div>
+               <div class="info">
+                    <img src='./Currency-Conversion-Questions-in-Numerical-Reasoning-Tests.jpg'; 
+                    alt='broken'/>
+                </div>
+            
+        </div>
+        <footer class="footer">
+            <p>by Lawrence | Marie</p>
+        </footer>
+    </div>
+    
+</body>
+</html>

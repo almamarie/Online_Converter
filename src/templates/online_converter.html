@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+
+
+
+    
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+.converter{
+    width: 100%;
+}
+.header{
+    width: 100%;
+    height: 60px;
+    background-color: red;
+    color: white
+}
+.logo{
+    float: left;
+    height: 15px;
+    padding: 8px 30px;
+    color: white;
+}
+.header ul{
+    padding: 0;
+    margin: 0;
+    float: left;
+    list-style-type: none;
+}
+.header ul li{
+    float: left;
+}
+
+.list-item{
+    padding: 13px 20px;
+    height: 30px;
+    font-size: 25px;
+    /* line-height: 30px; */
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+.list-item:hover{
+    background: rgba(190, 226, 226, 0.835);
+}
+
+.body{
+    width: 100%;
+    height: 550px;
+    background-image: url("/home/ofoli/Desktop/Converter/50-Beautiful-and-Minimalist-Presentation-Backgrounds-031.jpg");
+}
+.info{
+    width: 50%;
+    /* background-color: blue; */
+    margin: 0px 0px;
+    float: left;
+    height: inherit;
+}
+.info h1,p,ul{
+
+    /* text-align: center; */
+    margin-left: 80px;
+    margin-top: 30px;
+    padding-left: 10px;
+}
+.info p,ul{
+    margin-top: 0px;
+    font-size: 25px;
+}
+.info ul{
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: 100px;
+}
+
+
+.right-side{
+    width: 50%;
+    float: left;
+    height: inherit;
+}
+.inner-body{
+    background-color: whitesmoke;
+    width: 60%;
+    height: 500px;
+    margin: 20px 15%;
+    box-shadow: 0 0 10px rgba(20, 10, 10, 0.2);
+    border-radius: 5px;
+}
+.right-side select,input,button{
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px rgba(20, 10, 10, 0.2);
+    border-radius: 7px;
+    display: block;
+    width: 80%;
+    height: 50px;
+    margin: 10px 10%;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+.inner-body button{
+    background-color: rgba(168, 206, 200, 0.918);
+}
+.inner-body button:hover{
+    background-color: yellowgreen;
+}
+.inner-body input{
+    margin-top: 20px;
+    width: 79%;
+}
+.inner-body h1{
+    margin: 0 120px;
+}
+.inner-body p{
+    border: 1px solid;
+    box-shadow: 0 0 5px rgba(20, 10, 10, 0.1);
+    border-radius: 7px;
+    color: blue;
+    font-size: 40px;
+    padding-top:10px ;
+    text-align: center;
+        display: block;
+        width: 90%;
+        height: 70px;
+        margin: 34px 14px 10px;
+    
+}
+
+.footer{
+    padding-top: 0px;
+    margin-top: 0px;
+    width: 100%;
+    height: 50px;
+    background-color:rgba(20, 10, 10, 0.219);
+    text-align: center;
+}
+.footer p{
+    padding-top: 0px;
+    margin-top: 0px;
+}
+    </style>
+    <script>
+
+        myObject={
+            Select:["To","From"],
+            Mass:["gram","kilogram","pound","tonne"],
+            Length:["meter","kilometer","inch","yard"],
+            Temperature:["Celcius","fahrenhiet","kelvin"],
+            Area:["square meter","square km","acre","hector"],
+            Currency:["USD()","EUR()","GBP()","GH()"]
+        }
+
+        function dis(id1,id2,id3){
+            const ID1= document.getElementById(id1);
+            const ID2= document.getElementById(id2);
+            const ID3= document.getElementById(id3);
+
+            ID2.innerHTML="";
+            ID3.innerHTML="";
+
+            function addElement(elementId,content){
+                const newElement=document.createElement("option");
+                newElement.innerHTML=content
+                newElement.value=content
+                return elementId.options.add(newElement);
+            }
+            if(ID1.value==="Select"){
+                    const a=document.createElement("option");
+                    const b=document.createElement("option");
+                    a.innerHTML=myObject[ID1.value][1]
+                    b.innerHTML=myObject[ID1.value][0]
+                    ID2.options.add(a);
+                    ID3.options.add(b);
+
+            }else{
+            myObject[ID1.value].forEach((element,index)=>{
+                    addElement(ID2,element);
+                    addElement(ID3,element);
+            })}
+        }
+        
+    </script>
+</head>
+<body>
+    <div class="converter">
+        <div class="header">
+            <h1 class="logo">Just Convert</h1>
+            <nav>
+                <ul>
+                    <li><a class="list-item" href="">Home</a></li>
+                    <li><a class="list-item" href="">History</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="body">
+                <div class="info">
+                    <h1>Just Convert</h1>
+                    <p>An online platform for converting quantities</p>
+                    <p>We help you convert</p>
+                    <ul>
+                        <li>Mass</li>
+                        <li>Length</li>
+                        <li>Area</li>
+                        <li>Temperature</li>
+                        <li>Currency</li>
+                    </ul>
+                </div>
+                <div class="right-side">
+                
+                    <div class="inner-body">
+                        <h1>Converter</h1>
+                        <form>
+                            <input 
+                                type="text" 
+                                name="quantity" 
+                                placeholder="Quantity"
+                            />
+                            <select 
+                                id="quantity" 
+                                name="Quantity" 
+                                onchange="dis(this.id,'from','to')"
+                                >
+                                <option value="Select">Select unit</option>
+                                <option value="Length">Length</option>
+                                <option value="Mass">Mass</option>
+                                <option value="Area">Area</option>
+                                <option value="Temperature">Temperature</option>
+                                <option value="Currency">Currency</option>
+                              </select>
+                              <select id="from" name="From">
+                                <option >From</option>
+                              </select>
+                              <select id="to" name="To">
+                                <option >To</option>
+                              </select>
+                            <button onclick="toggleDivs('main-action')">CONVERT</button>
+                        </form>
+                        <p id="answer">answer</p>
+                     </div>
+                       
+            </div>
+            
+        </div>
+        <footer class="footer">
+            <p>by Lawrence | Marie</p>
+        </footer>
+    </div>
+</body>
+</html>
