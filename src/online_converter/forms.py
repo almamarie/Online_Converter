@@ -11,7 +11,7 @@ meterFactor = [('square meter',"square meter"),('square km',"square km"),('squar
 	                    ('square inch',"square inch"), ('square mile',"square mile"), ('milimeter',"milimeter"),('square rod',"square rod"),
 	                    ('square yard',"square yard"), ('square township',"square township"), ('square acre', "square acre") ,('square are', "square acre"),
 	                    ('square barn', "square barn"), ('square hectare', "square hectre"), ('square homestead', "square homestead")]
-fromconvert = [
+what_list = [
 	("currency","Currency"), ("mass","Mass"), ("length","Length"), ("area","Area"), ("temperature","Temperature")
 	]
 
@@ -22,11 +22,13 @@ FRUIT_CHOICES= [
     ('mango', 'Mangoes'),
     ('honeydew', 'Honeydews'),
     ]
+allTogether = currency_ids + mass_ids + length_ids + meterFactor
 
 class convertForm(forms.Form):
-	convert_from     = forms.CharField(widget=forms.Select(choices=fromconvert))
-	convert_to   	 = forms.CharField(widget=forms.Select(choices=convert_from))
-	amount = forms.FloatField()
+	what_convert     = forms.CharField(widget=forms.Select(choices=what_list))
+	convert_from     = forms.CharField(widget=forms.Select(choices=allTogether))
+	convert_to   	 = forms.CharField(widget=forms.Select(choices=allTogether))
+	amount 			 = forms.FloatField()
 
 
 # class convertConverter(forms.Form):
